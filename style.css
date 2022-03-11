@@ -9,18 +9,90 @@ html {
 	box-sizing: inherit;
 }
 
+:root {
+	--color-1: hsla(170, 71%, 92%, 1);
+	--color-2: hsla(319, 65%, 55%, 1);
+	--color-3: hsla(170, 71%, 92%, 1);
+	--color-4: hsla(201, 45%, 54%, 1);
+	--color-5: hsla(263, 66%, 27%, 1);
+	--color-6: hsla(0, 2%, 20%, 1);
+	--color-6-trans: hsla(0, 2%, 20%, 0.5);
+}
+
 body {
 	margin: 0;
 	font-size: 16px;
 	font-family: "Ubuntu", sans-serif;
+	background: var(--color-5);
+	min-height: 100vw;
 }
 
 .main-header {
 	display: flex;
 	justify-content: center;
-	background: purple;
 }
 
 .main-header-title {
-	color: whitesmoke;
+	color: var(--color-1);
+}
+
+.audio-player-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: clamp(300px, 75%, 800px);
+	height: clamp(15rem, 25rem, 40rem);
+	margin: auto;
+	border-radius: 40px;
+	background: linear-gradient(to left, var(--color-6), transparent);
+	box-shadow: 10px 5px 2px -5px var(--color-2);
+}
+
+.image-container {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 auto;
+	width: 60%;
+	height: 100%;
+	max-width: 25rem;
+	max-height: 25rem;
+}
+
+.cover-image {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 50%;
+	animation: rotate 8s linear infinite;
+	animation-play-state: play;
+}
+
+.info-controls-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1 1 auto;
+	width: 40%;
+	height: 100%;
+	border-radius: 40px;
+	box-shadow: 6px 4px 5px -5px var(--color-6);
+}
+
+.controls-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 1rem;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
