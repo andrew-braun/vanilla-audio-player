@@ -65,6 +65,10 @@ body {
 	object-fit: cover;
 	border-radius: 50%;
 	animation: rotate 8s linear infinite;
+	animation-play-state: paused;
+}
+
+.music-container.play .cover-image {
 	animation-play-state: play;
 }
 
@@ -86,6 +90,23 @@ body {
 	justify-content: center;
 	width: 100%;
 	margin: 1rem;
+}
+
+.music-nav-button {
+	background: transparent;
+	margin: 1rem;
+	border: none;
+}
+
+.music-nav-button:focus {
+	box-shadow: 0px 0px 0px 0px var(--color-2);
+}
+
+#play-button {
+	padding: 0.7rem 0.8rem 0.6rem 1.1rem;
+	border: 1px solid var(--color-2);
+	border-radius: 50%;
+	background: var(--color-4);
 }
 
 @keyframes rotate {
