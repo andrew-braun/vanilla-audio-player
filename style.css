@@ -71,6 +71,7 @@ h6 {
 }
 
 .image-container {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	flex: 1 1 25rem;
@@ -81,13 +82,25 @@ h6 {
 	max-height: 25rem;
 }
 
+.image-container::after {
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	content: "";
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: var(--color-6);
+}
+
 .cover-image {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
 	border-radius: 50%;
 	animation: rotate 8s linear infinite;
-	animation-play-state: play;
+	animation-play-state: paused;
 }
 
 .music-container.play .cover-image {
@@ -113,11 +126,11 @@ h6 {
 	align-items: center;
 	width: 100%;
 	margin-bottom: 3%;
-	// background: linear-gradient(to left, var(--color-6-trans), transparent);
-
 	text-align: center;
 	font-size: 4rem;
 	color: var(--color-1);
+	animation: fadeIn 0.3s linear forwards;
+	transition: all 0.3s ease-in-out;
 }
 
 .music-artist {
@@ -197,6 +210,23 @@ h6 {
 	transform: translateX(5%);
 }
 
+.progress-bar-container {
+	background: var(--color-1);
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0 0 1rem 0;
+	height: 4px;
+	width: 80%;
+}
+
+.progress-bar {
+	background-color: var(--color-2);
+	border-radius: 5px;
+	height: 100%;
+	width: 0%;
+	transition: all 0.1s linear;
+}
+
 @media screen and (max-width: 768px) {
 	.audio-player-container {
 		width: 95%;
@@ -230,5 +260,14 @@ h6 {
 	}
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
