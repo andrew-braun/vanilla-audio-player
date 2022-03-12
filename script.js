@@ -62,7 +62,7 @@ const handlePlayClick = (event) => {
 	if (!audioSource.paused) {
 		audioSource.pause()
 		audioContainer.classList.remove("play")
-		playButtonImage.src = "/images/icons/play.svg"
+		playButtonImage.src = "/vanilla-audio-player/images/icons/play.svg"
 		playButton.classList.remove("pause-button")
 		playButton.classList.add("play-button")
 		return
