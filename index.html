@@ -41,41 +41,46 @@
 		<header class="main-header">
 			<h1 class="main-header-title">Vanilla Music Player</h1>
 		</header>
-		<div class="audio-player-container" id="audio-player-container">
-			<audio
-				src="music/01-Mountain Top.mp3"
-				class="audio-source"
-				id="audio-source"
-			></audio>
-			<div class="image-container">
-				<img
-					src="images/bedouin-soundclash-light-the-horizon.jpg"
-					alt=""
-					id="cover-image"
-					class="cover-image"
-				/>
-			</div>
-			<div class="info-controls-container">
-				<div class="music-info">
-					<h3 class="music-title" id="music-title"></h3>
-					<div class="progress-bar-container" id="progress-bar-container">
-						<div class="progress-bar" id="progress-bar"></div>
+		<main class="main-content">
+			<div class="audio-player-container" id="audio-player-container">
+				<audio
+					src="music/01-Mountain Top.mp3"
+					class="audio-source"
+					id="audio-source"
+				></audio>
+				<div class="image-container">
+					<img
+						src="images/bedouin-soundclash-light-the-horizon.jpg"
+						alt=""
+						id="cover-image"
+						class="cover-image"
+					/>
+				</div>
+				<div class="info-controls-container">
+					<div class="music-info">
+						<h3 class="music-title" id="music-title"></h3>
+						<div class="progress-bar-container" id="progress-bar-container">
+							<div class="progress-bar" id="progress-bar"></div>
+						</div>
+					</div>
+					<div class="controls-container" id="controls-container">
+						<button id="previous-button" class="music-nav-button">
+							<img
+								src="/images/icons/previous.svg"
+								id="previous-button-image"
+							/>
+						</button>
+						<button id="play-button" class="music-nav-button">
+							<img src="/images/icons/play.svg" id="play-button-image" />
+						</button>
+
+						<button id="next-button" class="music-nav-button">
+							<img src="/images/icons/next.svg" id="next-button-image" />
+						</button>
 					</div>
 				</div>
-				<div class="controls-container" id="controls-container">
-					<button id="previous-button" class="music-nav-button">
-						<img src="/images/icons/previous.svg" id="previous-button-image" />
-					</button>
-					<button id="play-button" class="music-nav-button">
-						<img src="/images/icons/play.svg" id="play-button-image" />
-					</button>
-
-					<button id="next-button" class="music-nav-button">
-						<img src="/images/icons/next.svg" id="next-button-image" />
-					</button>
-				</div>
 			</div>
-		</div>
+		</main>
 		<script src="script.js"></script>
 	</body>
 </html>
