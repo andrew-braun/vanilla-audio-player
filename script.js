@@ -40,6 +40,8 @@ const songList = [
 // Load stored song from localStorage
 function loadFromLocalStorage() {
 	const currentSongIndex = parseInt(localStorage.getItem("currentSongIndex"))
+		? parseInt(localStorage.getItem("currentSongIndex"))
+		: 0
 	loadSong(songList[currentSongIndex])
 }
 
