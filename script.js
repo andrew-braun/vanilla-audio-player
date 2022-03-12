@@ -17,22 +17,23 @@ const songList = [
 		title: "A Chance of Rain",
 		artist: "Bedouin Soundclash",
 		album: "Light the Horizon",
-		path: "./music/A Chance of Rain.mp3",
-		artPath: "./images/bedouin-soundclash-light-the-horizon.jpg",
+		path: "/vanilla-audio-player/music/A Chance of Rain.mp3",
+		artPath:
+			"/vanilla-audio-player/images/bedouin-soundclash-light-the-horizon.jpg",
 	},
 	{
 		title: "Maverick",
 		artist: "FM-84",
 		album: "Maverick",
-		path: "./music/Maverick.mp3",
-		artPath: "./images/fm-84-maverick.jpg",
+		path: "/vanilla-audio-player/music/Maverick.mp3",
+		artPath: "/vanilla-audio-player/images/fm-84-maverick.jpg",
 	},
 	{
 		title: "Aphelion",
 		artist: "Scandroid",
 		album: "Scandroid",
-		path: "./music/Aphelion.mp3",
-		artPath: "./images/scandroid-scandroid.jpg",
+		path: "/vanilla-audio-player/music/Aphelion.mp3",
+		artPath: "/vanilla-audio-player/images/scandroid-scandroid.jpg",
 	},
 ]
 
