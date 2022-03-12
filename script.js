@@ -95,3 +95,22 @@ const handleNextButtonClick = (event) => {
 }
 
 nextButton.addEventListener("click", handleNextButtonClick)
+
+const handlePreviousButtonClick = (event) => {
+	// Get current song index from localstorage
+	const currentSongIndex = localStorage.getItem("currentSongIndex")
+
+	// If we're at the beginning of the song list, loop back to index -1
+	const previousSongIndex =
+		parseInt(currentSongIndex) != 0
+			? parseInt(currentSongIndex) - 1
+			: songList.length - 1
+
+	// Load the song from the database
+	loadSong(songList[previousSongIndex])
+
+	// Update currentsong state
+	localStorage.setItem("currentSongIndex", previousSongIndex)
+}
+
+previousButton.addEventListener("click", handlePreviousButtonClick)
