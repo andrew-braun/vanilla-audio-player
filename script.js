@@ -51,7 +51,7 @@ function loadFromLocalStorage() {
 }
 
 // Initial load
-loadFromlocalStorage()
+loadFromaocalStorage()
 
 // Takes a song object and updates DOM nodes
 function loadSong(song) {
