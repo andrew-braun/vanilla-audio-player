@@ -37,16 +37,21 @@ const songList = [
 	},
 ]
 
-// Load stored song from sessionStorage
-function loadFromsessionStorage() {
-	const currentSongIndex = parseInt(sessionStorage.getItem("currentSongIndex"))
-		? parseInt(sessionStorage.getItem("currentSongIndex"))
+// Set initial localstorage
+if (!localStorage.getItem("currentSongIndex")) {
+	localStorage.setItem("currentSongIndex", 0)
+}
+
+// Load stored song from localStorage
+function loadFromLocalStorage() {
+	const currentSongIndex = parseInt(localStorage.getItem("currentSongIndex"))
+		? parseInt(localStorage.getItem("currentSongIndex"))
 		: 0
 	loadSong(songList[currentSongIndex])
 }
 
 // Initial load
-loadFromsessionStorage()
+loadFromlocalStorage()
 
 // Takes a song object and updates DOM nodes
 function loadSong(song) {
@@ -78,12 +83,12 @@ const handlePlayClick = (event) => {
 
 playButton.addEventListener("click", handlePlayClick)
 
-/* On next button click, check current song index in sessionStorage
+/* On next button click, check current song index in localStorage
 update accordingly
 */
 const handleNextButtonClick = (event) => {
-	// Get current song index from sessionStorage
-	const currentSongIndex = sessionStorage.getItem("currentSongIndex")
+	// Get current song index from localStorage
+	const currentSongIndex = localStorage.getItem("currentSongIndex")
 
 	// If we're at the end of the song list, loop back to index 0
 	const nextSongIndex =
@@ -96,14 +101,14 @@ const handleNextButtonClick = (event) => {
 
 	audioSource.play()
 	// Update currentsong state
-	sessionStorage.setItem("currentSongIndex", nextSongIndex)
+	localStorage.setItem("currentSongIndex", nextSongIndex)
 }
 
 nextButton.addEventListener("click", handleNextButtonClick)
 
 const handlePreviousButtonClick = (event) => {
-	// Get current song index from sessionStorage
-	const currentSongIndex = sessionStorage.getItem("currentSongIndex")
+	// Get current song index from localStorage
+	const currentSongIndex = localStorage.getItem("currentSongIndex")
 
 	// If we're at the beginning of the song list, loop back to index -1
 	const previousSongIndex =
@@ -117,7 +122,7 @@ const handlePreviousButtonClick = (event) => {
 	audioSource.play()
 
 	// Update currentsong state
-	sessionStorage.setItem("currentSongIndex", previousSongIndex)
+	localStorage.setItem("currentSongIndex", previousSongIndex)
 }
 
 previousButton.addEventListener("click", handlePreviousButtonClick)
