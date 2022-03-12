@@ -1,5 +1,8 @@
+const audioContainer = document.querySelector("#audio-player-container")
 const audioSource = document.querySelector("#audio-source")
 const playButton = document.querySelector("#play-button")
+const imageContainer = document.querySelector("#image-container")
+const coverImage = document.querySelector("#cover-image")
 const playButtonImage = document.querySelector("#play-button-image")
 const nextButton = document.querySelector("#next-button")
 const previousButton = document.querySelector("#previous-button")
@@ -22,7 +25,7 @@ const songList = [
 		artist: "FM-84",
 		album: "Maverick",
 		path: "/music/Maverick.mp3",
-		artPath: "/fm-84-maverick.jpg",
+		artPath: "/images/fm-84-maverick.jpg",
 	},
 	{
 		title: "Aphelion",
@@ -33,15 +36,10 @@ const songList = [
 	},
 ]
 
-// Store initial song data in localstorage
-localStorage.setItem("currentSong", JSON.stringify(songList[0]))
-localStorage.setItem("currentSongIndex", 0)
-
 // Load stored song from localStorage
 function loadFromLocalStorage() {
-	const currentSong = JSON.parse(localStorage.getItem("currentSong"))
-	// console.log(currentSong)
-	loadSong(currentSong)
+	const currentSongIndex = parseInt(localStorage.getItem("currentSongIndex"))
+	loadSong(songList[currentSongIndex])
 }
 
 // Initial load
@@ -53,12 +51,14 @@ function loadSong(song) {
 	musicTitle.innerText = song.title
 	musicArtist.innerText = song.artist
 	musicAlbum.innerText = song.album
+	coverImage.src = song.artPath
 }
 
 const handlePlayClick = (event) => {
 	// If audio is not paused, pause it and revert to play button
 	if (!audioSource.paused) {
 		audioSource.pause()
+		audioContainer.classList.remove("play")
 		playButtonImage.src = "/images/icons/play.svg"
 		playButton.classList.remove("pause-button")
 		playButton.classList.add("play-button")
@@ -67,6 +67,7 @@ const handlePlayClick = (event) => {
 
 	// Default behavior: play and replace pause play button with pause
 	audioSource.play()
+	audioContainer.classList.add("play")
 	playButton.classList.remove("play-button")
 	playButton.classList.add("pause-button")
 	playButtonImage.src = "/images/icons/pause.svg"
@@ -90,6 +91,7 @@ const handleNextButtonClick = (event) => {
 	// Load the song from the database
 	loadSong(songList[nextSongIndex])
 
+	audioSource.play()
 	// Update currentsong state
 	localStorage.setItem("currentSongIndex", nextSongIndex)
 }
@@ -108,6 +110,8 @@ const handlePreviousButtonClick = (event) => {
 
 	// Load the song from the database
 	loadSong(songList[previousSongIndex])
+
+	audioSource.play()
 
 	// Update currentsong state
 	localStorage.setItem("currentSongIndex", previousSongIndex)

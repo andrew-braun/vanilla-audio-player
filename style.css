@@ -103,8 +103,8 @@ h6 {
 	animation-play-state: paused;
 }
 
-.music-container.play .cover-image {
-	animation-play-state: play;
+.audio-player-container.play .cover-image {
+	animation-play-state: running;
 }
 
 .info-controls-container {
