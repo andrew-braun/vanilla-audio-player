@@ -181,7 +181,7 @@ h6 {
 	box-shadow: 0px 0px 0px 0px var(--color-2);
 }
 
-#play-button {
+.play-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -200,6 +200,17 @@ h6 {
 #play-button-image {
 	width: 30px;
 	height: 30px;
+}
+
+.pause-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: var(--color-5);
 }
 
 #previous-button:hover {
