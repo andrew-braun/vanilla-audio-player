@@ -18,21 +18,21 @@ const songList = [
 		artist: "Bedouin Soundclash",
 		album: "Light the Horizon",
 		path: "music/A Chance of Rain.mp3",
-		artPath: "images/bedouin-soundclash-light-the-horizon.jpg",
+		artPath: "./images/bedouin-soundclash-light-the-horizon.jpg",
 	},
 	{
 		title: "Maverick",
 		artist: "FM-84",
 		album: "Maverick",
 		path: "music/Maverick.mp3",
-		artPath: "images/fm-84-maverick.jpg",
+		artPath: "./images/fm-84-maverick.jpg",
 	},
 	{
 		title: "Aphelion",
 		artist: "Scandroid",
 		album: "Scandroid",
 		path: "music/Aphelion.mp3",
-		artPath: "images/scandroid-scandroid.jpg",
+		artPath: "./images/scandroid-scandroid.jpg",
 	},
 ]
 
