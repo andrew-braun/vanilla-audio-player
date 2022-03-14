@@ -221,13 +221,19 @@ h6 {
 	transform: translateX(5%);
 }
 
+.progress-time-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 0 0 1rem 0;
+}
 .progress-bar-container {
 	background: var(--color-1);
 	border-radius: 5px;
 	cursor: pointer;
-	margin: 0 0 1rem 0;
+
 	height: 4px;
-	width: 80%;
+	width: 75%;
 }
 
 .progress-bar {
@@ -236,6 +242,12 @@ h6 {
 	height: 100%;
 	width: 0%;
 	transition: all 0.1s linear;
+}
+
+.time-counter {
+	margin: 0 1rem;
+	font-size: 1.2rem;
+	color: var(--color-1);
 }
 
 @media screen and (max-width: 768px) {
