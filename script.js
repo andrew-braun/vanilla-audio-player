@@ -1,16 +1,19 @@
 const audioContainer = document.querySelector("#audio-player-container")
 const audioSource = document.querySelector("#audio-source")
+
 const playButton = document.querySelector("#play-button")
-const imageContainer = document.querySelector("#image-container")
-const coverImage = document.querySelector("#cover-image")
 const playButtonImage = document.querySelector("#play-button-image")
 const nextButton = document.querySelector("#next-button")
 const previousButton = document.querySelector("#previous-button")
 
+const imageContainer = document.querySelector("#image-container")
+const coverImage = document.querySelector("#cover-image")
 const musicTitle = document.querySelector("#music-title")
 const musicArtist = document.querySelector("#music-artist")
 const musicAlbum = document.querySelector("#music-album")
 
+const timePlayed = document.querySelector("#time-played")
+const timeRemaining = document.querySelector("#time-remaining")
 // Mimic very basic NoSQL database
 const songList = [
 	{
@@ -126,3 +129,28 @@ const handlePreviousButtonClick = (event) => {
 }
 
 previousButton.addEventListener("click", handlePreviousButtonClick)
+
+/* Set play time counters */
+const updatePlayTimes = (event) => {
+	const currentTime = audioSource.currentTime
+	const elapsedMinutes = Math.floor(currentTime / 60)
+	const elapsedSeconds =
+		currentTime % 60 > 10
+			? Math.floor(currentTime % 60)
+			: `0${Math.floor(currentTime % 60)}`
+
+	timePlayed.innerText = `${elapsedMinutes}:${elapsedSeconds}`
+
+	const remainingMinutes = Math.floor(
+		audioSource.duration / 60 - elapsedMinutes
+	)
+	const remainingSeconds =
+		Math.floor((audioSource.duration % 60) - elapsedSeconds) >= 10
+			? Math.floor((audioSource.duration % 60) - elapsedSeconds)
+			: `0${Math.floor((audioSource.duration % 60) - elapsedSeconds)}`
+
+	console.log(remainingSeconds)
+	timeRemaining.innerText = `${remainingMinutes}:${remainingSeconds}`
+}
+
+audioSource.addEventListener("timeupdate", updatePlayTimes)
