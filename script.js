@@ -14,6 +14,9 @@ const musicAlbum = document.querySelector("#music-album")
 
 const timePlayed = document.querySelector("#time-played")
 const timeRemaining = document.querySelector("#time-remaining")
+const progressBarContainer = document.querySelector("#progress-bar-container")
+const progressBar = document.querySelector("#progress-bar")
+
 // Mimic very basic NoSQL database
 const songList = [
 	{
@@ -149,8 +152,26 @@ const updatePlayTimes = (event) => {
 			? Math.floor((audioSource.duration % 60) - elapsedSeconds)
 			: `0${Math.floor((audioSource.duration % 60) - elapsedSeconds)}`
 
-	console.log(remainingSeconds)
 	timeRemaining.innerText = `${remainingMinutes}:${remainingSeconds}`
 }
 
 audioSource.addEventListener("timeupdate", updatePlayTimes)
+
+const updateProgressBar = (event) => {
+	const currentTime = audioSource.currentTime
+	const percentPlayed = (currentTime / audioSource.duration) * 100
+
+	progressBar.style.width = `${percentPlayed}%`
+}
+
+audioSource.addEventListener("timeupdate", updateProgressBar)
+
+const seekTime = (event) => {
+	const containerWidth = event.currentTarget.clientWidth
+	const clickX = event.offsetX
+	const barPercent = clickX / containerWidth
+
+	audioSource.currentTime = audioSource.duration * barPercent
+}
+
+progressBarContainer.addEventListener("click", seekTime)
