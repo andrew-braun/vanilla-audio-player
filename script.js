@@ -80,7 +80,7 @@ const handlePlayClick = (event) => {
 	}
 
 	// Default behavior: play and replace pause play button with pause
-	audioSource.play()
+	audioSource.play().catch((event) => console.log(event))
 	audioContainer.classList.add("play")
 	playButton.classList.remove("play-button")
 	playButton.classList.add("pause-button")
@@ -105,7 +105,7 @@ const playNextSong = (event) => {
 	// Load the song from the database
 	loadSong(songList[nextSongIndex])
 
-	audioSource.play()
+	audioSource.play().catch((event) => console.log(event))
 	// Update currentsong state
 	localStorage.setItem("currentSongIndex", nextSongIndex)
 }
@@ -125,7 +125,7 @@ const playPreviousSong = (event) => {
 	// Load the song from the database
 	loadSong(songList[previousSongIndex])
 
-	audioSource.play()
+	audioSource.play().catch((event) => console.log(event))
 
 	// Update currentsong state
 	localStorage.setItem("currentSongIndex", previousSongIndex)
