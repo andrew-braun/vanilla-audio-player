@@ -92,8 +92,8 @@ playButton.addEventListener("click", handlePlayClick)
 /* On next button click, check current song index in localStorage
 update accordingly
 */
-const handleNextButtonClick = (event) => {
-	// Get current song index from localStorage
+const playNextSong = (event) => {
+	// Get current song index from localstorage
 	const currentSongIndex = localStorage.getItem("currentSongIndex")
 
 	// If we're at the end of the song list, loop back to index 0
@@ -110,10 +110,10 @@ const handleNextButtonClick = (event) => {
 	localStorage.setItem("currentSongIndex", nextSongIndex)
 }
 
-nextButton.addEventListener("click", handleNextButtonClick)
+nextButton.addEventListener("click", playNextSong)
 
-const handlePreviousButtonClick = (event) => {
-	// Get current song index from localStorage
+const playPreviousSong = (event) => {
+	// Get current song index from localstorage
 	const currentSongIndex = localStorage.getItem("currentSongIndex")
 
 	// If we're at the beginning of the song list, loop back to index -1
@@ -131,7 +131,7 @@ const handlePreviousButtonClick = (event) => {
 	localStorage.setItem("currentSongIndex", previousSongIndex)
 }
 
-previousButton.addEventListener("click", handlePreviousButtonClick)
+previousButton.addEventListener("click", playPreviousSong)
 
 /* Set play time counters */
 const updatePlayTimes = (event) => {
@@ -175,3 +175,7 @@ const seekTime = (event) => {
 }
 
 progressBarContainer.addEventListener("click", seekTime)
+
+/* Progress to next song on song end */
+
+audioSource.addEventListener("ended", playNextSong)
