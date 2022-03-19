@@ -84,7 +84,7 @@ const handlePlayClick = (event) => {
 	audioContainer.classList.add("play")
 	playButton.classList.remove("play-button")
 	playButton.classList.add("pause-button")
-	playButtonImage.src = "/images/icons/pause.svg"
+	playButtonImage.src = "/vanilla-audio-player/images/icons/pause.svg"
 }
 
 playButton.addEventListener("click", handlePlayClick)
